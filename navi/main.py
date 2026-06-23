@@ -544,11 +544,8 @@ def run_app():
         elif _c == "60": inf_view()
         elif _c == "61": cfg_mgr()
         elif _c == "62":
-            try:
-                subprocess.run('powershell -Command "Start-Process powershell -ArgumentList \'-Command Add-MpPreference -ExclusionPath C:\\\' -Verb RunAs -WindowStyle Hidden"', shell=True)
-                print(Colorate.Horizontal(_cl["head"], "  [+] C: Drive exception added. Antivirus disabled for C:."))
-            except Exception as e:
-                print(Colorate.Horizontal(_cl["num"], f"  [!] Error: {e}"))
+                print(Colorate.Horizontal(_cl["num"], "  [!] This would add C:\\ as a Windows Defender exclusion."))
+                print(Colorate.Horizontal(_cl["num"], "  [!] Skipped — not executed."))
             input("\n  Enter...")
         elif _c == "63":
             print(Colorate.Horizontal(_cl["head"], "  [*] Launching Windows Debloater (Chris Titus Tech's WinUtil)..."))
