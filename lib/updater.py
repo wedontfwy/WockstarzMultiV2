@@ -166,32 +166,7 @@ def _install_deps():
 
 
 def run_auto_update():
-    """Download and apply update. Returns (ok, message)."""
-    url = _zip_url()
-    if "github.com" not in url:
-        return False, "URL de mise à jour non autorisée."
-
-    tmp = tempfile.mkdtemp(prefix="wock-update-")
-    zip_path = os.path.join(tmp, "update.zip")
-    try:
-        _download(url, zip_path)
-        with zipfile.ZipFile(zip_path, "r") as zf:
-            zf.extractall(tmp)
-        src_root = _find_zip_root(tmp)
-        if not src_root:
-            return False, "Archive GitHub invalide (dossier wock introuvable)."
-        src_wock = os.path.join(src_root, "wock")
-        if not os.path.isdir(src_wock):
-            return False, "Dossier wock absent dans l'archive."
-
-        copied, skipped = _copy_tree(src_wock, C.wock_DIR)
-        _copy_root_files(src_root, C.ROOT_DIR)
-        _install_deps()
-        return True, f"{copied} fichiers mis à jour ({skipped} configs conservées)."
-    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError, zipfile.BadZipFile) as e:
-        return False, str(e)
-    finally:
-        shutil.rmtree(tmp, ignore_errors=True)
+    return False, "Auto-update is disabled for security."
 
 
 def handle_update_gate():
