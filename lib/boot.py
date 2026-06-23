@@ -180,23 +180,6 @@ def first_run():
     flag = os.path.join(flag_dir, ".launched")
 
     if not os.path.exists(flag):
-        webbrowser.open(C.GITHUB)
-        webbrowser.open(C.SHOP)
-        webbrowser.open(C.DISCORD)
-        gif = os.path.join(_wock_DIR, "screenshots", "star.PNG")
-        if not os.path.exists(gif):
-            gif = os.path.join(_wock_DIR, "screenshots", "Star.gif")
-        if os.path.exists(gif):
-            try:
-                if os.name == "nt":
-                    os.startfile(gif)
-                else:
-                    webbrowser.open(gif)
-            except Exception:
-                try:
-                    webbrowser.open(gif)
-                except Exception:
-                    pass
         with open(flag, "w", encoding="utf-8") as f:
             f.write("1")
 
