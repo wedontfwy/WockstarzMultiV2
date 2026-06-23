@@ -1,0 +1,16 @@
+pystyle
+requests
+selenium
+dnspython
+beautifulsoup4
+pysocks
+websocket-client
+piexif
+exifread
+mutagen
+PyQt5
+rich
+colorama
+aiohttp
+discord.py
+packaging
